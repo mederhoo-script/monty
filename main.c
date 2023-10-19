@@ -50,6 +50,17 @@ void cleanup_stack(stack_t *stack)
  */
 int main(int argc, char *argv[])
 {
+	instruction_t instructions[] = {
+	{"push", push},
+	{"pall", pall},
+	{"pint", pint},
+	{"pop", pop},
+	{"swap", swap},
+	{"add", add},
+	{"nop", nop},
+	{NULL, NULL}
+};
+
 	FILE *file;
 	char line[MAX_LINE_LENGTH];
 	stack_t *stack = NULL;
