@@ -43,7 +43,6 @@ void cleanup_stack(stack_t *stack)
 
 		stack = stack->next;
 		free(temp);
-		exit(EXIT_FAILURE);
 	}
 }
 
