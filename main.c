@@ -20,6 +20,9 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
 		swap(stack, line_number);
 	else if (strcmp(line, "add\n") == 0)
 		add(stack, line_number);
+	else if (strcmp(line, "nop\n") == 0)
+		return;
+	
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s", line_number, line);
@@ -50,17 +53,6 @@ void cleanup_stack(stack_t *stack)
  */
 int main(int argc, char *argv[])
 {
-	instruction_t instructions[] = {
-	{"push", push},
-	{"pall", pall},
-	{"pint", pint},
-	{"pop", pop},
-	{"swap", swap},
-	{"add", add},
-	{"nop", nop},
-	{NULL, NULL}
-};
-
 	FILE *file;
 	char line[MAX_LINE_LENGTH];
 	stack_t *stack = NULL;
