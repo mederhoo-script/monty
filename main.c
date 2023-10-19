@@ -16,6 +16,8 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
 		pint(stack, line_number);
 	else if (strcmp(line, "pop\n") == 0)
 		pop(stack, line_number);
+	else if (strcmp(line, "swap\n") == 0)
+		swap(stack, line_number);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s", line_number, line);
