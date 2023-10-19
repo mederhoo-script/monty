@@ -22,6 +22,7 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
 		add(stack, line_number);
 	else if (strcmp(line, "nop\n") == 0)
 		free(stack);
+		return;
 	
 	else
 	{
