@@ -39,10 +39,12 @@ void cleanup_stack(stack_t *stack)
 {
 	while (stack != NULL)
 	{
-		stack_t *temp = stack;
+		stack_t *temp;
+		temp = stack;
 
-		stack = stack->next;
-		free(temp);
+		temp = stack->next;
+		free(stack);
+		stack = temp;
 	}
 }
 
