@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
 			push(&stack, atoi(line + 5));
 		else if (strcmp(line, "pint\n") == 0)
 			pint(&stack, line_number);
+		else if (strcmp(line, "pop\n") == 0)
+			pop(&stack, line_number);
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s", line_number, line);
