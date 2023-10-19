@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
 	while (fgets(line, sizeof(line), file) != NULL)
 	{
 		line_number++;
-
 		if (strcmp(line, "pall\n") == 0)
 			pall(&stack, line_number);
 		else if (strncmp(line, "push ", 5) == 0)
