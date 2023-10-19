@@ -1,11 +1,3 @@
-#define _GNU_SOURCE
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <string.h>
-#include <ctype.h>
 #include "monty.h"
 
 
@@ -35,6 +27,10 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
 		sub(stack, line_number);
 	else if (strcmp(line, "div\n") == 0)
 		div_op(stack, line_number);
+	else if (strcmp(line, "mul\n") == 0)
+		mul(stack, line_number);
+	else if (strcmp(line, "mod\n") == 0)
+		mod(stack, line_number);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s", line_number, line);
@@ -51,6 +47,7 @@ void cleanup_stack(stack_t *stack)
 	while (stack != NULL)
 	{
 		stack_t *temp;
+
 		temp = stack;
 
 		temp = stack->next;
