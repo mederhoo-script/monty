@@ -49,6 +49,7 @@ void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void div_op(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
 
 void process_line(char *line, stack_t **stack, unsigned int line_number);
 void cleanup_stack(stack_t *stack);

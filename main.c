@@ -1,4 +1,13 @@
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <ctype.h>
 #include "monty.h"
+
 
 /**
  * process_line - Process a single line of the file.
@@ -60,7 +69,9 @@ int main(int argc, char *argv[])
 {
 
 	FILE *file;
-	char line[MAX_LINE_LENGTH];
+	char *line = NULL;
+	size_t len = 0;
+	ssize_t read;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 
@@ -77,12 +88,13 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	while (fgets(line, sizeof(line), file) != NULL)
+	while ((read = getline(&line, &len, file)) != -1)
 	{
 		line_number++;
 		process_line(line, &stack, line_number);
 	}
 
+	free(line);
 	fclose(file);
 	cleanup_stack(stack);
 	return (0);
