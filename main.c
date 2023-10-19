@@ -78,8 +78,7 @@ int main(int argc, char *argv[])
 		process_line(line, &stack, line_number);
 	}
 
-	cleanup_stack(stack);
-
 	fclose(file);
+	cleanup_stack(stack);
 	return (0);
 }
