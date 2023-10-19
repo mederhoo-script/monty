@@ -43,7 +43,6 @@ void cleanup_stack(stack_t *stack)
 
 		stack = stack->next;
 		free(temp);
-		free(stack);
 	}
 }
 
@@ -81,5 +80,6 @@ int main(int argc, char *argv[])
 
 	fclose(file);
 	cleanup_stack(stack);
+	exit(EXIT_FAILURE);
 	return (0);
 }
