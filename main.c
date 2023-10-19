@@ -1,7 +1,4 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 /**
  * main - Monty interpreter main function.
  * @argc: The number of arguments.
@@ -34,6 +31,8 @@ int main(int argc, char *argv[])
 			pall(&stack, line_number);
 		else if (strncmp(line, "push ", 5) == 0)
 			push(&stack, atoi(line + 5));
+		else if (strcmp(line, "pint\n") == 0)
+			pint(&stack, line_number);
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s", line_number, line);
@@ -47,7 +46,6 @@ int main(int argc, char *argv[])
 	stack = stack->next;
 	free(temp);
 	}
-
 	fclose(file);
 	return (0);
 }
