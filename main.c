@@ -22,6 +22,8 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
 		add(stack, line_number);
 	else if (strcmp(line, "nop\n") == 0)
 	;
+	else if (strcmp(line, "sub\n") == 0)
+		sub(stack, line_number);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s", line_number, line);
