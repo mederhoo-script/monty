@@ -9,6 +9,9 @@
  */
 void process_line(char *line, stack_t **stack, unsigned int line_number)
 {
+	if (line[0] == '#' || line[0] == '\n')
+        return;
+
 	if (strcmp(line, "pall\n") == 0)
 		pall(stack, line_number);
 	else if (strncmp(line, "push ", 5) == 0)
