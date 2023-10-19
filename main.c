@@ -24,6 +24,8 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
 	;
 	else if (strcmp(line, "sub\n") == 0)
 		sub(stack, line_number);
+	else if (strcmp(line, "div\n") == 0)
+		div_op(stack, line_number);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s", line_number, line);
@@ -56,6 +58,7 @@ void cleanup_stack(stack_t *stack)
  */
 int main(int argc, char *argv[])
 {
+
 	FILE *file;
 	char line[MAX_LINE_LENGTH];
 	stack_t *stack = NULL;

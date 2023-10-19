@@ -11,7 +11,6 @@
 
 #define MAX_LINE_LENGTH 100
 
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -49,6 +48,7 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void div_op(stack_t **stack, unsigned int line_number);
 
 void process_line(char *line, stack_t **stack, unsigned int line_number);
 void cleanup_stack(stack_t *stack);
