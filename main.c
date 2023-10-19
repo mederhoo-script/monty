@@ -81,5 +81,5 @@ int main(int argc, char *argv[])
 	cleanup_stack(stack);
 
 	fclose(file);
-	return (1);
+	return (0);
 }
